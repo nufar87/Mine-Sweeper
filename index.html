@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Sweeper</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInitGame()" onkeyup="">
+    <h1>Mine Sweeper</h1>
+    <button onclick="newGame(4, 2)">EASY</button>
+    <button onclick="newGame(8, 14)">MEDIUM</button>
+    <button onclick="newGame(12, 32)">HARD</button>
+    <h3>time: <span class="timer">00:00</span></h3>
+    <table>
+        <tbody class="board"></tbody>
+    </table>
+    <script src="js/utils.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

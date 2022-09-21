@@ -1,0 +1,45 @@
+body {
+    background-color: #182747;
+    text-align: center;
+}
+h1 {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+table {
+    border-spacing: 4px;
+   
+    border-radius: 3px;
+    text-align: center;
+    margin: auto;
+    background-color: aliceblue;
+}
+/* .hide {
+    background-color: rgb(173, 171, 171);
+} */
+.board td {
+/* border-radius: 5px; */
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: linear-gradient(to top, gray, lightgray);
+    background-color: aquamarine;
+    border: 1px solid blacl;
+    /* border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db; */
+    box-sizing: border-box;
+  }
+    
+.free {
+        background-color: lightgray;
+}
+
+button {
+    cursor: pointer;
+}
+
+.color {
+    background-color:  rgb(238, 90, 90);
+}
