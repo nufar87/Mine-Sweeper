@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="onInitGame()" onkeyup="">
-    <h1>Mine Sweeper</h1>
-    <button onclick="newGame(4, 2)">EASY</button>
-    <button onclick="newGame(8, 14)">MEDIUM</button>
-    <button onclick="newGame(12, 32)">HARD</button>
-    <h3>time: <span class="timer">00:00</span></h3>
+<body onload="onInitGame()">
+    <h1>MINE SWEEPER</h1>
+    <div class="smiley" onclick="onNewGame(4, 2)"></div>
+    <button onclick="onNewGame(4, 2)">EASY</button>
+    <button onclick="onNewGame(8, 14)">MEDIUM</button>
+    <button onclick="onNewGame(12, 32)">HARD</button>
+    <div class="extra">
+        <h4>LIVES:<span class="lives" ></span></h4>
+        <h4>HINTS:<span onclick="onShowHint()" class="hints"></span></h4>
+    </div>
     <table>
         <tbody class="board"></tbody>
     </table>
+    <h3>TIME: <span class="timer"></span></h3>
+    <div class="modal">
+        <h2></h2>
+    </div>
     <script src="js/utils.js"></script>
     <script src="js/board.js"></script>
     <script src="js/game.js"></script>
