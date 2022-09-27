@@ -19,8 +19,6 @@ var gManuallyMode;
 var gManuallyMinesCount;
 var g7Boom;
 var gSafeClickCount;
-var gLocalStorage = window.localStorage;
-const HIGH_SCORES = [];
 // var commands =[];
 
 function onInitGame() {
@@ -45,6 +43,21 @@ function onInitGame() {
   document.querySelector('.lives').innerText = LIFE.repeat(gGame.gLife);
   document.querySelector('.hints').innerText = HINT.repeat(gHints);
   document.querySelector('.safe-click span').innerText = gSafeClickCount;
+  easyHighScoresList.innerHTML = easyHighScores
+    .map((SCORE) => {
+      return `<li class="high-score"> ${SCORE.name} - ${SCORE.score}</li>`;
+    })
+    .join('');
+  mediumHighScoresList.innerHTML = mediumHighScores
+    .map((SCORE) => {
+      return `<li class="high-score"> ${SCORE.name} - ${SCORE.score}</li>`;
+    })
+    .join('');
+  hardHighScoresList.innerHTML = hardHighScores
+    .map((SCORE) => {
+      return `<li class="high-score"> ${SCORE.name} - ${SCORE.score}</li>`;
+    })
+    .join('');
   console.log(gBoard);
   renderBoard(gBoard);
 }
@@ -92,8 +105,6 @@ function minesAroundCounter(board) {
 }
 
 function onCellClicked(elCell, cellI, cellJ) {
-  console.log(gBoard);
-  console.log(elCell, 'elCell');
   //manually positioned mines
   if (gManuallyMode) {
     gGame.isOn = true;
@@ -211,8 +222,6 @@ function renderCell(cellI, cellJ) {
   elCell.classList.add('open');
 }
 
-//new
-
 function gameOver() {
   //reveal all mines
   for (var i = 0; i < gBoard.length; i++) {
@@ -255,29 +264,13 @@ function checkGameOver() {
     document.querySelector('.smiley').innerText = SMILEYS[1];
     document.querySelector('.modal h2').innerText = 'Victory!';
     document.querySelector('.modal').style.display = 'block';
-    !gGame.isOn;
     var elCells = document.querySelectorAll('.cell');
     for (var i = 0; i < elCells.length; i++) {
       elCells[i].removeAttribute('onclick');
       elCells[i].removeAttribute('oncontextmenu');
     }
-    // setup localStorage -still working on it :)
-    // const NAME = prompt('You got a high score! Enter you name:');
-    // var currBestScore = gLocalStorage.getItem('bestScore');
-    // console.log(currBestScore);
-    // if (!gLocalStorage.getItem('bestScore')) {
-    //   gLocalStorage.setItem('bestScore', gGame.secsPassed);
-    //   document.querySelector('.score span').innerHTML =
-    //     NAME + ' ' + gGame.secsPassed;
-    // } else {
-    //   var bestTime = +gLocalStorage.getItem('bestScore');
-    //   if (gGame.secsPassed > bestTime) {
-    //     bestTime = gGame.secsPassed;
-    //     //updating local storage
-    //     gLocalStorage.setItem('bestScore', bestTime);
-    //     document.querySelector('.score span').innerHTML = NAME + ' ' + bestTime;
-    //   }
-    // }
+    // setup localStorage
+    saveScore(gGame);
   } else {
     if (gGame.gLife === 0) gameOver();
     if (shownCount === sumCells) gameOver();

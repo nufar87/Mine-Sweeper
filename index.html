@@ -23,7 +23,6 @@
         <button onclick="on7Boom(gBoard)">7BOOM!</button>
     </div>
     <div class="extra2">
-        <!-- <button class="undo">UNDO</button> -->
         <button class="safe-click" onclick="onSafeClick(this)">Safe Click <span></span></button>
     </div>
     <table>
@@ -33,11 +32,28 @@
     <div class="modal">
         <h2></h2>
     </div>
-    <div class="score">Best Score List:<span></span></div>
+    <div class="container">
+        <h4>HIGH SCORES LIST:</h4>
+        <div class="high-scores">
+            <div class="column">
+                <h4>Level EASY</h4>
+                <ul id="easyHighScoresList" class="list"></ul>
+            </div>
+            <div class="column">
+                <h4>Level MEDIUM</h4>
+                <ul id="mediumHighScoresList" class="list"></ul>
+            </div>
+            <div class="column" >
+                <h4>Level HARD</h4>
+                <ul id="hardHighScoresList" class="list"></ul>
+            </div>
+        </div>  
+    </div>
 
     <script src="js/utils.js"></script>
     <script src="js/board.js"></script>
     <script src="js/game.js"></script>
-    <script src="js/extra_features.js"></script>
+    <script src="js/extraFeatures.js"></script>
+    <script src="js/highScores.js"></script>
 </body>
 </html>
